@@ -1,13 +1,17 @@
 const express = require('express');
 const app = express();
 const exphbs = require('express-handlebars');
+const port = process.env.PORT|| 5000;
+
+
+
+
 const db = require('./models')
 
-db.sequelize.sync({force: false})
+db.sequelize.sync({force: false});
 
-    app.listen(3000, () => {
-        console.log('Success  3000');
-    });
+   
+    
       
 //tempaling engine
 
@@ -19,5 +23,7 @@ app.set('view engine', '.hbs');
 app.get('', (req, res)=>{
 res.render('home')
 });
+
+
  
 
