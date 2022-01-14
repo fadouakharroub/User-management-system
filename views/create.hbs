@@ -1,0 +1,23 @@
+<h1>create user </h1>
+ <a class="btn btn-primary " href="/">All Users</a>
+<form method="POST" action="/saveUser">
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Name Complet</label>
+    <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+  </div>
+   <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email</label>
+    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+  </div>
+   <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Password</label>
+    <input type="password" name="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+  </div>
+  <select> 
+     {{#each data}}
+    <option value="{{id}}">{{name}}</option>
+  {{/each}}
+  </select>
+  <button type="submit" class="btn btn-primary">Create User</button>
+  
+</form>
