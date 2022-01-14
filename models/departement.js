@@ -1,9 +1,23 @@
+const {DataTypes} = require ("sequelize")
 
-module.exports = (sequelize, DataTypes) => {
-  const departement = sequelize.define('departement', {
-    name: DataTypes.STRING,
-    description: DataTypes.STRING,
-  });
- 
-  return departement;
-};
+module.exports = (sequelize) => 
+  
+    sequelize.define('departement', {
+      id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+        primaryKey: true,
+      },
+      name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      description: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+     
+  
+   });
+
+

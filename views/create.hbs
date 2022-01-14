@@ -1,11 +1,15 @@
-<h1>create user </h1>
- <a class="btn btn-primary " href="/">All Users</a>
+<h1>Create User </h1>
+ {{#each users}}
+    <p>Username: {{this.dataValues.name}}</p>
+{{/each}}
+ <a class="btn btn-primary " href="/">Home</a>
 <form method="POST" action="/saveUser">
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Name Complet</label>
     <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
   </div>
    <div class="mb-3">
+     h,g;h
     <label for="exampleInputEmail1" class="form-label">Email</label>
     <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
   </div>
@@ -14,9 +18,14 @@
     <input type="password" name="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
   </div>
   <select> 
-     {{#each data}}
-    <option value="{{id}}">{{name}}</option>
-  {{/each}}
+     {{!-- {{#each departements as |departement| }}
+    <option >{{departement.name}}
+      
+
+
+      
+    </option>
+  {{/each}} --}}
   </select>
   <button type="submit" class="btn btn-primary">Create User</button>
   

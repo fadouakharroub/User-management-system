@@ -1,22 +1,28 @@
 const {
-    user,
-    departement,
+    models,
    } = require("../models");
 
 const allUsers = async (req, res)=>{
-  const users = await user.findAll({
+  const users = await  models.users.findAll({
     raw:true
   }).catch(error=>console.log(error))
   await  res.render('home', {users});
 }
 
-const userForm =  (req, res)=>{
-  departement.findAll().then((data)=>{res.render('create',{data})})
-    
+const userForm = async (req, res)=>{
+  // departement.findAll().then((data)=>{res.render('create',{data})})
+  try {
+    const departements = await models.departements.findAll();
+console.log(departements.departement)
+    return res.render('create', {
+      departements,
+    });
+  } catch (error) {
+    return res.send(error.message);
   }
+};
 
   const saveUser = async (req, res)=>{
-      //  const {name, email} = await req.body;
         user.create({
           name: req.body.name,
           email: req.body.email,
