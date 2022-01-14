@@ -13,8 +13,8 @@ app.use('/', router);
 
 
 
-const db = require('./models')
-db.sequelize.sync({force: false})
+const models = require('./models')
+// db.sequelize.sync({force: false})
 
 app.get('', (req, res)=>{
     res.render('home')
